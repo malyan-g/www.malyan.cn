@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\components\helpers\SwooleHelper;
 use yii\web\Controller;
 use app\components\helpers\RedisHelper;
@@ -26,6 +27,7 @@ class SiteController extends Controller
 
     public function actionPush()
     {
-        var_dump(SwooleHelper::backendPush('你哈'));
+        $content = Yii::$app->request->get('c','哈哈');
+        var_dump(SwooleHelper::backendPush($content));
     }
 }
