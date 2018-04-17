@@ -51,9 +51,11 @@ AppAsset::register($this);
 <?php
 $js = <<<JS
     $(function() {
+        var t;
         function connectWs() {
             var ws = new WebSocket('ws:service.malyan.cn?token={$token}');
             ws.onopen = function(e){
+                clearInterval(t);
             };
             
             ws.onmessage = function(e){
@@ -69,6 +71,7 @@ $js = <<<JS
             };
             
             ws.onclose = function(e){
+                t = setInterval(connectWs, 1000);
             };
             
             send = function() {
@@ -83,7 +86,6 @@ $js = <<<JS
                 }
             }
         }
-        
         connectWs();
     });
 JS;
