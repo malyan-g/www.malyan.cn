@@ -9,13 +9,14 @@
 namespace app\components\helpers;
 
 use Yii;
+use yii\base\BaseObject;
 
 /**
  * Redis
  * Class RedisHelper
  * @package app\components\helpers
  */
-class RedisHelper
+class RedisHelper extends BaseObject
 {
     /**
      * \Redis

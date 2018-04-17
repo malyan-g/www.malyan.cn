@@ -8,12 +8,14 @@
  */
 namespace app\components\helpers;
 
+use yii\base\BaseObject;
+
 /**
  * HttpClient助手
  * Class HttpClientHelper
  * @package app\helpers
  */
-class HttpClientHelper
+class HttpClientHelper extends BaseObject
 {
     /**
      * curl handler

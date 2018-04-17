@@ -9,14 +9,14 @@
 namespace app\components\helpers;
 
 use Yii;
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * Token
  * Class TokenHelper
  * @package app\components\helpers
  */
-class TokenHelper extends Object
+class TokenHelper extends BaseObject
 {
     /**
      * 获取token

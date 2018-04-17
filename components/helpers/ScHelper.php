@@ -8,13 +8,13 @@
 
 namespace app\components\helpers;
 
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * Class ScHelper
  * @package app\components\helpers
  */
-class ScHelper extends Object
+class ScHelper extends BaseObject
 {
     //密钥为24位16进制 向量为8
     protected static $desKey= '4d89g13j4j91j27c582ji69373y788r9';

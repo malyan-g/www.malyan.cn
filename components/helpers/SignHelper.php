@@ -9,14 +9,14 @@
 namespace app\components\helpers;
 
 use Yii;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
 
 /**
  * Class SignHelper
  * @package app\components\helpers
  */
-class SignHelper extends Object
+class SignHelper extends BaseObject
 {
     /**
      * 加密
