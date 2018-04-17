@@ -9,10 +9,10 @@
 namespace app\components\helpers;
 
 use Yii;
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
 
-class SwooleHelper extends Object
+class SwooleHelper extends BaseObject
 {
     /**
      * @var string 服务器域名
