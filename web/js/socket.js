@@ -79,9 +79,10 @@ var socket = {
         try{
             this.log(event.data);
             var data = JSON.parse(event.data);
-            var method = 'onMessage' + data.type;
-            if(this.hasOwnProperty(method)){
-                this.method(data.data);
+            if(data.type === 'Text'){
+                this.onMessageText(data.data);
+            }else if(data.type === 'Image'){
+                this.onMessageImage(data.data);
             }
         }catch (e){
             this.log(e);
