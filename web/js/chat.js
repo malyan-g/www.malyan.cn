@@ -9,11 +9,11 @@ socket.appendCon = function (con) {
     }
 };
 socket.onMessageText = function (data) {
-    var con = '<div><a href="#" ' + (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：' + data.text + '</a></div>';
+    var con = '<div class="act-pat"><a href="#" ' + (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：' + data.text + '</a></div>';
     this.appendCon(con);
 };
 socket.onMessageImage = function (data) {
-    var con ='<div><a href="#" ' +  (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：<img src="' +data.image + '" width="100%"></div>';
+    var con ='<div  class="act-pat"><a href="#" ' +  (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：<img src="' +data.image + '" class="phone"></div>';
     this.appendCon(con);
 };
 socket.onMessageConnect = function (data) {
