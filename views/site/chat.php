@@ -50,10 +50,7 @@ $js = <<<JS
         // ws服务器地址
         var wsUrl = 'ws:service.malyan.cn';
         // 避免ws重复连接
-        var lockReconnect = false;  
-        
-         //连接ws
-        createWebSocket();  
+        var lockReconnect = false;
         
         createWebSocket = function() {
             try{
@@ -149,6 +146,9 @@ $js = <<<JS
                 }, this.timeout)
             }
         };
+        
+         //连接ws
+        createWebSocket();  
     });
 JS;
 $this->registerJs($js);
