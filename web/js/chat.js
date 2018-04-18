@@ -34,6 +34,7 @@ $('.h-doc-chat .file').on('change', function(){
         var input = this.files[0];
         var reader = new FileReader();
         var type = 'jpg|jpeg|png,';
+        var value = this.value;
         if(type.indexOf(value.slice(value.lastIndexOf('.') + 1)) === -1){
             alert('您上传的文件格式不正确');
             return;
