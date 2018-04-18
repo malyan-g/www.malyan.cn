@@ -21,7 +21,7 @@ var socket = {
         this.createWebSocket();
         $('.h-doc-im').css('height',$(window).height() - $('.h-doc-chat').outerHeight());
         this.imScroll = new IScroll('#h-doc-im', {click: true});
-        this.iosFocus();
+        //this.iosFocus();
     },
     // 创建WebSocket对象
     createWebSocket: function () {
