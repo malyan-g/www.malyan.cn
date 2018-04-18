@@ -1,4 +1,4 @@
-socket.init();
+socket.run();
 socket.appendCon = function (con) {
     $('.h-doc-im .con').append(con);
 };
