@@ -42,6 +42,9 @@ AppAsset::register($this);
         <div class="send">发送</div>
     </div>
 </div>
+<div class="h-pic-show none">
+    <img src="" alt=""/>
+</div>
 <?php
 $js = <<<JS
     var nickname = '{$nickname}';

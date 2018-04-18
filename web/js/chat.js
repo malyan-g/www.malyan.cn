@@ -9,11 +9,11 @@ socket.appendCon = function (con) {
     }
 };
 socket.onMessageText = function (data) {
-    var con = '<div class="act-pat"><a href="#" ' + (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：' + data.text + '</a></div>';
+    var con = '<div class="act-pat clearfix"><a href="#" ' + (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：' + data.text + '</a></div>';
     this.appendCon(con);
 };
 socket.onMessageImage = function (data) {
-    var con ='<div  class="act-pat"><a href="#" ' +  (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：<img src="' +data.image + '" class="phone"></div>';
+    var con ='<div  class="act-pat clearfix"><a href="#" ' +  (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：<div class="about"><span class="arrow"></span><img src="' +data.image + '" class="pic"></div></div>';
     this.appendCon(con);
 };
 socket.onMessageConnect = function (data) {
@@ -54,4 +54,12 @@ $('.h-doc-chat .file').on('change', function(){
     }catch(e) {
         socket.log(e);
     }
+});
+$(document).on('click','.h-doc-im .pic', function(){
+    $('.h-pic-show img').attr('src',$(this).attr('src'));
+    $('.h-pic-show').show();
+});
+
+$('.h-pic-show').on('click',function(){
+    $('.h-pic-show').hide();
 });
