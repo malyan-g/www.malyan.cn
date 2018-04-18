@@ -1,4 +1,15 @@
 socket.init();
+socket.appendCon = function (con) {
+    $('.h-doc-im .con').append(con);
+};
+socket.onMessageText = function (data) {
+    var con = '<div><a>' + data.nickname + '</a>：' + data.text + '</a>div>';
+    this.appendCon(con);
+};
+socket.onMessageImage = function (data) {
+    var con ='<div><a>' + data.nickname + '</a>：<img src="' +data.image + '" ><div>';
+    this.appendCon(con);
+};
 // 发送消息
 $('.send').on('click', function(){
     var text = $.trim($('.h-doc-chat .input').val()).replace(/\</g,"&lt;").replace(/\>/g,"&gt;");

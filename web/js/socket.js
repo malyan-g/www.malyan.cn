@@ -145,17 +145,6 @@ var socket = {
             });
         }
     },
-    appendCon: function (con) {
-        $('.h-doc-im .con').append(con);
-    },
-    onMessageText: function (data) {
-        var con = '<div><a>' + data.nickname + '</a>：' + data.text + '</a>div>';
-        this.appendCon(con);
-    },
-    onMessageImage: function (data) {
-        var con ='<div><a>' + data.nickname + '</a>：<img src="' +data.image + '" ><div>';
-        this.appendCon(con);
-    },
     // 日志
     log: function (message) {
         if(this.openLog) console.log(message);
