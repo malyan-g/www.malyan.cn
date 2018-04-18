@@ -53,15 +53,15 @@ var socket = {
     // webSocket初始化
     initEventHandle: function () {
         // 连接建立时触发
-        this.ws.onopen = this.open(event);
+        this.ws.onopen = this.open();
         // 客户端接收服务端数据时触发
         this.ws.onmessage = function(event){
             this.message(event);
         };
         // 通信发生错误时触发
-        this.ws.onerror = this.error(event);
+        this.ws.onerror = this.error();
         // 连接关闭时触发
-        this.ws.onclose = this.close(event);
+        this.ws.onclose = this.close();
     },
     // webSocket连接建立时回调
     open: function () {
