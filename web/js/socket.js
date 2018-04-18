@@ -3,7 +3,7 @@ var socket = {
     // webSocket对象
     ws: null,
     // webSocket服务器地址
-    url: 'server.malyan.cn',
+    url: 'service.malyan.cn',
     // 开启日志
     openLog: true,
     // 避免ws重复连接
