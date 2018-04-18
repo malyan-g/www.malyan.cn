@@ -36,7 +36,7 @@ var webSocket = {
                     // 如果直接执行reconnect 会触发onclose导致重连两次
                     heartSelf.webSocketSelf.ws.close();
                 }, heartSelf.timeout);
-            }, heartSelf.timeout);
+            }, this.timeout);
         }
     },
     // 避免ws重复连接
