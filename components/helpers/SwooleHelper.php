@@ -187,7 +187,7 @@ class SwooleHelper extends BaseObject
         $config = [
             'worker_num' => 4,
             'backlog' => 128,
-            'max_request' => 50,
+            'daemonize' => 1,
             'dispatch_mode' => 2,
         ];
         $this->socket->set($config);
