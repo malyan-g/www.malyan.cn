@@ -63,6 +63,7 @@ $js = <<<JS
             };
             
             ws.onclose = function(e){
+                connectWs();
             };
             
             send = function() {
