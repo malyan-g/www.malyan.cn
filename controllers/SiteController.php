@@ -21,7 +21,7 @@ class SiteController extends Controller
         $redisHelper->set($token, 1);
         $redisHelper->expire($token, 60);*/
         return $this->render('chat', [
-            'nickname' => '游客' . $this->uniqueId
+            'nickname' => '游客' . uniqid()
         ]);
     }
 
