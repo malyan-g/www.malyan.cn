@@ -55,41 +55,41 @@ var socket = {
         var self = this;
         // 连接建立时触发
         this.ws.onopen = function (event) {
-            this.log("ws open!");
-            this.log(event);
+            self.log("ws open!");
+            self.log(event);
             //心跳检测重置
-            this.heartReset().heartStart();
+            self.heartReset().heartStart();
         };
         // 客户端接收服务端数据时触发
         this.ws.onmessage = function(event){
-            this.log("ws message!");
+            self.log("ws message!");
             //如果获取到消息，心跳检测重置
-            this.heartReset().heartStart();
+            self.heartReset().heartStart();
             //拿到任何消息都说明当前连接是正常的
             try{
-                this.log(event.data);
+                self.log(event.data);
                 var data = JSON.parse(event.data);
                 if(data.type === 'Text'){
-                    this.onMessageText(data.data);
+                    self.onMessageText(data.data);
                 }else if(data.type === 'Image'){
-                    this.onMessageImage(data.data);
+                    self.onMessageImage(data.data);
                 }
             }catch (e){
-                this.log(e);
-                this.log(event);
+                self.log(e);
+                self.log(event);
             }
         };
         // 通信发生错误时触发
         this.ws.onerror = function (event) {
-            this.log("ws error!");
-            this.log(event);
-            this.reconnect();
+            self.log("ws error!");
+            self.log(event);
+            self.reconnect();
         };
         // 连接关闭时触发
         this.ws.onclose = function (event) {
-            this.log("ws close!");
-            this.log(event);
-            this.reconnect();
+            self.log("ws close!");
+            self.log(event);
+            self.reconnect();
         };
     },
     // webSocket客户端发送数据到服务器
