@@ -73,6 +73,8 @@ var socket = {
                     self.onMessageText(data.data);
                 }else if(data.type === 'Image'){
                     self.onMessageImage(data.data);
+                }else if(data.type === 'Connect '){
+                    self.onMessageConnect(data.data);
                 }
             }catch (e){
                 self.log(e);
