@@ -71,10 +71,13 @@ var socket = {
                 self.log(event.data);
                 var data = JSON.parse(event.data);
                 if(data.type === 'Text'){
+                    self.log(1);
                     self.onMessageText(data.data);
                 }else if(data.type === 'Image'){
+                    self.log(2);
                     self.onMessageImage(data.data);
                 }else if(data.type === 'Connect '){
+                    self.log(3);
                     self.onMessageConnect(data.data);
                 }
             }catch (e){

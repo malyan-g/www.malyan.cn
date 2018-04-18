@@ -4,7 +4,7 @@ socket.appendCon = function (con) {
     var dis = $('.h-doc-im .con').height() - $('.h-doc-im').height();
     this.imScroll.refresh();
     if(dis > 0) {
-        dis += 20;
+        dis += 30;
         this.imScroll.scrollTo(0, -dis);
     }
 };
