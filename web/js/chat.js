@@ -17,6 +17,7 @@ socket.onMessageImage = function (data) {
     this.appendCon(con);
 }
 socket.onMessageConnect = function (data) {
+    console.log(data.num);
     $('.num').html(data.num);
 };
 // 发送消息
