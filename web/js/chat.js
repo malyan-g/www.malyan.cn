@@ -29,10 +29,15 @@ $('.send').on('click', function(){
 });
 // 上传图片
 $('.h-doc-chat .file').on('change', function(){
-    // 选择图片的input
-    var input = this.files[0];
-    var reader = new FileReader();
     try{
+        // 选择图片的input
+        var input = this.files[0];
+        var reader = new FileReader();
+        var type = 'jpg|jpeg|png,';
+        if(type.indexOf(value.slice(value.lastIndexOf('.') + 1)) === -1){
+            alert('您上传的文件格式不正确');
+            return;
+        }
         if(input.size > 1024*1024){
             alert('文件大小不能超过1M');
             return;
