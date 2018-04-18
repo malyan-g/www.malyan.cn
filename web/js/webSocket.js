@@ -62,17 +62,18 @@ var webSocket = {
         }
     },
     // 初始化webScoket句柄
-    initEventHandle: function() {
+    initEventHandle: function(){
+        var self = this;
         // 连接回调
         this.ws.onopen = function () {
             //心跳检测重置
-            this.heartCheck.reset().start();
-            this.log("ws连接成功!"+new Date().toUTCString());
+            self.heartCheck.reset().start();
+            self.log("ws连接成功!"+new Date().toUTCString());
         };
         // 收到消息回调
         this.ws.onmessage = function (e) {
             //如果获取到消息，心跳检测重置
-            this.heartCheck.reset().start();
+            self.heartCheck.reset().start();
             //拿到任何消息都说明当前连接是正常的
             try{
                 var data = JSON.parse(e.data)
@@ -81,7 +82,7 @@ var webSocket = {
                     receiveMessage(data.msg);
                 }
             }catch (e){}
-            this.log(e);
+            self.log(e);
         };
         // 错误回调
         this.ws.onerror = function () {
@@ -90,8 +91,8 @@ var webSocket = {
         };
         // 关闭回调
         this.ws.onclose = function () {
-            this.reconnect();
-            this.log("ws连接关闭!"+new Date().toUTCString());
+            self.reconnect();
+            self.log("ws连接关闭!"+new Date().toUTCString());
         };
     },
     // 重新连接
