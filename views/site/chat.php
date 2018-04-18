@@ -46,7 +46,7 @@ AppAsset::register($this);
 $js = <<<JS
     var nickname = '{$nickname}';
 JS;
-$this->registerJs($js);
+$this->registerJs($js, \yii\web\View::POS_HEAD);
 ?>
 
 <?php $this->endBody() ?>
