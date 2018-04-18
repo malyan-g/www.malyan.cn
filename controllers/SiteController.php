@@ -16,13 +16,11 @@ class SiteController extends Controller
      */
     public function actionChat()
     {
-        $token = md5(time());
+        /*$token = md5(time());
         $redisHelper = RedisHelper::getInstance();
         $redisHelper->set($token, 1);
-        $redisHelper->expire($token, 60);
-        return $this->render('chat', [
-            'token' => $token
-        ]);
+        $redisHelper->expire($token, 60);*/
+        return $this->render('chat');
     }
 
     public function actionPush()

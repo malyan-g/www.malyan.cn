@@ -6,16 +6,10 @@
  * Time: 下午8:28
  */
 
-/* @var $this \yii\web\View */
-/* @var $token string */
-?>
-<?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use app\assets\AppAsset;
+
+/* @var $this \yii\web\View */
 
 AppAsset::register($this);
 ?>
@@ -52,7 +46,7 @@ AppAsset::register($this);
 $js = <<<JS
     $(function() {
         function connectWs() {
-            var ws = new WebSocket('ws:service.malyan.cn?token={$token}');
+            var ws = new WebSocket('ws:service.malyan.cn');
             ws.onopen = function(e){
             };
             
