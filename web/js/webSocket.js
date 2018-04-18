@@ -13,10 +13,6 @@ var webSocket = {
     heartTimeoutObj: null,
     // webScoket服务对象
     heartServerTimeoutObj: null,
-    // 初始化化
-    init: function () {
-        this.createWebSocket();
-    },
     // 心跳重置
     heartReset: function(){
         clearTimeout(this.heartTimeoutObj);
@@ -41,6 +37,10 @@ var webSocket = {
                 self.ws.close();
             }, self.heartTimeout);
         }, this.heartTimeout);
+    },
+    // 初始化化
+    init: function () {
+        this.createWebSocket();
     },
     // 创建WebSocket对象
     createWebSocket: function () {
