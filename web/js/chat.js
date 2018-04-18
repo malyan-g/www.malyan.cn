@@ -33,7 +33,7 @@ $('.h-doc-chat .file').on('change', function(){
         // 选择图片的input
         var input = this.files[0];
         var reader = new FileReader();
-        var type = 'git|jpg|jpeg|png,';
+        var type = 'gif|jpg|jpeg|png,';
         var value = this.value;
         if(type.indexOf(value.slice(value.lastIndexOf('.') + 1)) === -1){
             alert('您上传的文件格式不正确');
