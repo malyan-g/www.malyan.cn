@@ -5,7 +5,7 @@ var socket = {
     // webSocket服务器地址
     url: 'service.malyan.cn',
     // 开启日志
-    openLog: true,
+    openLog: false,
     // 避免ws重复连接
     lockReconnect: false,
     // 重连时间
@@ -71,13 +71,10 @@ var socket = {
                 self.log(event.data);
                 var data = JSON.parse(event.data);
                 if(data.type === 'Text'){
-                    self.log(1);
                     self.onMessageText(data.data);
                 }else if(data.type === 'Image'){
-                    self.log(2);
                     self.onMessageImage(data.data);
-                }else if(data.type === 'Connect '){
-                    self.log(3);
+                }else if(data.type === 'Connect'){
                     self.onMessageConnect(data.data);
                 }
             }catch (e){
