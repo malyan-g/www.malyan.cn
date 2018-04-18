@@ -24,24 +24,74 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="grayL">
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <div class="message-box" style="margin: 10px;line-height: 16px">
+    <div class="h-doc-im" id="h-doc-im">
+        <div class="con">
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+            <p>121</p>
+        </div>
+    </div>
+    <div class="h-doc-chat">
+        <div class="file-box">
+            <input type="file" class="file" accept="image/gif,image/jpeg,image/jpg,image/png"/>
+        </div>
+        <div class="input-box">
+            <input type="text" class="input"/>
+        </div>
+        <div class="send">发送</div>
     </div>
 </div>
 
-<footer class="footer navbar-fixed-bottom" style="height: 110px">
-    <div class="container">
-        <div class="input-group" style="margin-bottom: 20px">
-            <textarea cols="30" rows="3" class="form-control message" placeholder="请输入内容" ></textarea>
-            <span class="input-group-btn">
-                <button class="btn btn-info send" type="button" style="height: 74px;" onclick="sendMessage()">发送</button>
-            </span>
-        </div>
-    </div>
-</footer>
+
 <?php $this->endBody() ?>
 </body>
 </html>

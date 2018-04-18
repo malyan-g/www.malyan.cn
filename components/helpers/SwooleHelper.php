@@ -336,7 +336,27 @@ class SwooleHelper extends BaseObject
     {
         $data = [
             'type' => 'Text',
-            'msg' => $data->msg
+            'data' => [
+                'nickname' => $data->nickname,
+                'text' => $data->text
+            ]
+        ];
+        $this->push($data);
+    }
+
+    /**
+     * 发送图片消息
+     * @param $fd
+     * @param $data
+     */
+    private function onMessageImage($fd, $data)
+    {
+        $data = [
+            'type' => 'Image',
+            'data' => [
+                'nickname' => $data->nickname,
+                'image' => $data->image
+            ]
         ];
         $this->push($data);
     }

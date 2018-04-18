@@ -20,13 +20,16 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/site.css'
     ];
     public $js = [
-        '/js/webSocket.js'
+        '/js/iscroll-5.2.0.js',
+        '/js/socket.js',
+        '/js/chat.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
         //'yii\web\JqueryAsset',
-        'yii\bootstrap\BootstrapAsset',
+        //'yii\bootstrap\BootstrapAsset',
     ];
 }
