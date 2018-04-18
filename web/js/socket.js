@@ -5,7 +5,7 @@ var socket = {
     // webSocket服务器地址
     url: 'service.malyan.cn',
     // 开启日志
-    openLog: false,
+    openLog: true,
     // 避免ws重复连接
     lockReconnect: false,
     // 重连时间
