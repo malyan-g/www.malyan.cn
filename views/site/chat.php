@@ -12,6 +12,7 @@ use app\assets\AppAsset;
 /* @var $this \yii\web\View */
 
 AppAsset::register($this);
+$this->registerJsFile('/js/webSocket.js');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -37,32 +38,11 @@ AppAsset::register($this);
         <div class="input-group" style="margin-bottom: 20px">
             <textarea cols="30" rows="3" class="form-control message" placeholder="请输入内容" ></textarea>
             <span class="input-group-btn">
-                <button class="btn btn-info send" type="button" style="height: 74px;" onclick="send()">发送</button>
+                <button class="btn btn-info send" type="button" style="height: 74px;" onclick="sendMessage()">发送</button>
             </span>
         </div>
     </div>
 </footer>
-<?php
-$js = <<<JS
-    $(function() {
-        webSocket.init();
-        
-        receiveMessage = function(message) {
-            $('.message-box').append('<p>' + message + '</p>');
-        };
-        
-        send = function() {
-            var message = $('.message').val();
-            if(message != ''){
-                webSocket.sendMessage(message);
-                $('.message').val('');
-            }
-        };
-    });
-JS;
-$this->registerJsFile('/js/webSocket.js');
-$this->registerJs($js);
-?>
 <?php $this->endBody() ?>
 </body>
 </html>

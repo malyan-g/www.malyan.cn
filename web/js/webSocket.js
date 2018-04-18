@@ -121,3 +121,20 @@ var webSocket = {
         console.log(message);
     }
 };
+
+// 初始化
+webSocket.init();
+
+// 接受消息
+receiveMessage = function(message) {
+    $('.message-box').append('<p>' + message + '</p>');
+};
+
+// 发送消息
+sendMessage = function() {
+    var message = $('.message').val();
+    if(message != ''){
+        webSocket.sendMessage(message);
+        $('.message').val('');
+    }
+};
