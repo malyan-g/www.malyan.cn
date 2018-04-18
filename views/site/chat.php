@@ -12,7 +12,6 @@ use app\assets\AppAsset;
 /* @var $this \yii\web\View */
 
 AppAsset::register($this);
-$this->registerJsFile('/js/webSocket.js');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

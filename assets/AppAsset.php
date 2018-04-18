@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
     public $css = [
     ];
     public $js = [
+        '/js/webSocket.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
