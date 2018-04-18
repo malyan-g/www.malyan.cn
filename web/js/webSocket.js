@@ -3,6 +3,8 @@ var webSocket = {
     ws: null,
     // ws连接地址
     url: 'ws:service.malyan.cn',
+    // 重连时间
+    reconnectTime: 2000,
     // 心跳检测
     heartCheck: {
         // webSocket对象
@@ -103,7 +105,7 @@ var webSocket = {
             self.createWebSocket();
             // 没连接上会一直重连，设置延迟避免请求过多
             self.lockReconnect = false;
-        }, 2000);
+        }, this.reconnectTime);
     },
     // 发送消息
     sendMessage: function(message) {
