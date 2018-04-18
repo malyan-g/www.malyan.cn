@@ -8,7 +8,7 @@ var webSocket = {
     // 重连时间
     reconnectTime: 2000,
     // 心跳频率
-    heartTimeout: 540000,
+    heartTimeout: 300000,
     // 心跳对象
     heartTimeoutObj: null,
     // webScoket服务对象
