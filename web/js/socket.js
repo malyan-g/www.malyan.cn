@@ -18,7 +18,7 @@ var socket = {
     heartServerTimeoutObj: null,
     // 构造方法
     init: function () {
-        //this.createWebSocket();
+        this.createWebSocket();
         $('.h-doc-im').css('height',$(window).height() - $('.h-doc-chat').outerHeight());
         this.imScroll = new IScroll('#h-doc-im', {click: true});
         this.iosFocus();
@@ -74,7 +74,7 @@ var socket = {
         this.heartReset().heartStart();
         //拿到任何消息都说明当前连接是正常的
         try{
-            //this.log(event.data);
+            this.log(event.data);
             var data = JSON.parse(event.data);
             var method = 'onMessage' + data.type;
             if(this.hasOwnProperty(method)){
