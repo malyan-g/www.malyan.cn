@@ -2,11 +2,11 @@ socket.init();
 socket.appendCon = function (con) {
     $('.h-doc-im .con').append(con);
     var dis = $('.h-doc-im .con').height() - $('.h-doc-im').height();
-    this.imScroll.refresh();
+    /*this.imScroll.refresh();
     if(dis > 0) {
         dis += 20;
         this.imScroll.scrollTo(0, -dis);
-    }
+    }*/
 };
 socket.onMessageText = function (data) {
     var con = '<div><a href="#">' + data.nickname + '</a>：' + data.text + '</a></div>';
