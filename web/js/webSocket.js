@@ -82,7 +82,7 @@ var webSocket = {
                     receiveMessage(data.msg);
                 }
             }catch (e){}
-            self.log(e);
+            self.log(e.data);
         };
         // 错误回调
         this.ws.onerror = function () {
