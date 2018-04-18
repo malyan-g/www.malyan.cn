@@ -20,7 +20,9 @@ class SiteController extends Controller
         $redisHelper = RedisHelper::getInstance();
         $redisHelper->set($token, 1);
         $redisHelper->expire($token, 60);*/
-        return $this->render('chat');
+        return $this->render('chat', [
+            'nickname' => '游客' . $this->uniqueId
+        ]);
     }
 
     public function actionPush()

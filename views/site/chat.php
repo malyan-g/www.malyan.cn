@@ -10,6 +10,7 @@ use yii\helpers\Html;
 use app\assets\AppAsset;
 
 /* @var $this \yii\web\View */
+/* @var $nickname string */
 
 AppAsset::register($this);
 ?>
@@ -41,7 +42,12 @@ AppAsset::register($this);
         <div class="send">发送</div>
     </div>
 </div>
-
+<?php
+$js = <<<JS
+    var nickname = '{$nickname}';
+JS;
+$this->registerJs($js);
+?>
 
 <?php $this->endBody() ?>
 </body>
