@@ -55,14 +55,16 @@ var socket = {
         // 连接建立时触发
         this.ws.onopen = this.open(event);
         // 客户端接收服务端数据时触发
-        this.ws.onmessage = this.message(event);
+        this.ws.onmessage = function(event){
+            this.message(event);
+        };
         // 通信发生错误时触发
         this.ws.onerror = this.error(event);
         // 连接关闭时触发
         this.ws.onclose = this.close(event);
     },
     // webSocket连接建立时回调
-    open: function (event) {
+    open: function () {
         this.log("ws open!");
         //心跳检测重置
         this.heartReset().heartStart();
@@ -86,12 +88,12 @@ var socket = {
         }
     },
     // webSocket通信发生错误时回调
-    error: function (event) {
+    error: function () {
         this.log("ws error!");
         this.reconnect();
     },
     // webSocket连接关闭时回调
-    close: function (event) {
+    close: function () {
         this.log("ws close!");
         this.reconnect();
     },
