@@ -55,7 +55,7 @@ $js = <<<JS
          //连接ws
         createWebSocket();  
         
-        function createWebSocket() {
+        createWebSocket = function() {
             try{
                 if('WebSocket' in window){
                     ws = new WebSocket(wsUrl);
@@ -64,12 +64,12 @@ $js = <<<JS
                 }
                 initEventHandle();
             }catch(e){
-                reconnect(url);
+                reconnect();
                 console.log(e);
             }     
         }
         
-        function initEventHandle() {
+        initEventHandle = function() {
             ws.onopen = function () {
                 //心跳检测重置
                 heartCheck.reset().start();      
@@ -99,7 +99,7 @@ $js = <<<JS
             };
         }
         
-        function send() {
+        send = function() {
             var message = $('.message').val();
             if(message != ''){
                 var data = {
@@ -109,6 +109,16 @@ $js = <<<JS
                 ws.send(JSON.stringify(data));
                 $('.message').val('');
             }
+        }
+        
+        reconnect =  function() {
+            if(lockReconnect) return;
+            lockReconnect = true;
+            setTimeout(function () {     
+                createWebSocket();
+                // 没连接上会一直重连，设置延迟避免请求过多
+                lockReconnect = false;
+            }, 2000);
         }
         
          //心跳检测
@@ -138,17 +148,7 @@ $js = <<<JS
                     }, self.timeout)
                 }, this.timeout)
             }
-        }
-        
-        function reconnect() {
-            if(lockReconnect) return;
-            lockReconnect = true;
-            setTimeout(function () {     
-                createWebSocket();
-                // 没连接上会一直重连，设置延迟避免请求过多
-                lockReconnect = false;
-            }, 2000);
-        }
+        };
     });
 JS;
 $this->registerJs($js);
