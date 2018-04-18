@@ -342,6 +342,19 @@ class SwooleHelper extends BaseObject
     }
 
     /**
+     * ping
+     * @param $fd
+     * @param $data
+     */
+    private function onMessagePing($fd, $data)
+    {
+        $data = [
+            'type' => 'Ping'
+        ];
+        $this->push($data, $fd);
+    }
+
+    /**
      * 请求服务器会回调此函数
      */
     private function request()
