@@ -28,6 +28,7 @@ AppAsset::register($this);
 <body class="grayL">
 <?php $this->beginBody() ?>
 <div class="wrap">
+    <div style="background: #00b3ee;text-align: center"><a href="#"><?= $nickname ?></a> (当前共<span class="num">1</span>人)</div>
     <div class="h-doc-im" id="h-doc-im">
         <div class="con"></div>
     </div>

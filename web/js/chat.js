@@ -15,6 +15,9 @@ socket.onMessageText = function (data) {
 socket.onMessageImage = function (data) {
     var con ='<div><a href="#">' + data.nickname + '</a>：<img src="' +data.image + '" ></div>';
     this.appendCon(con);
+}
+socket.onMessageConnect = function (data) {
+    $('.num').html(data.num);
 };
 // 发送消息
 $('.send').on('click', function(){
