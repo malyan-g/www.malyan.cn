@@ -9,11 +9,11 @@ socket.appendCon = function (con) {
     }
 };
 socket.onMessageText = function (data) {
-    var con = '<div><a>' + data.nickname + '</a>：' + data.text + '</a>div>';
+    var con = '<div><a href="#">' + data.nickname + '</a>：' + data.text + '</a></div>';
     this.appendCon(con);
 };
 socket.onMessageImage = function (data) {
-    var con ='<div><a>' + data.nickname + '</a>：<img src="' +data.image + '" ><div>';
+    var con ='<div><a href="#">' + data.nickname + '</a>：<img src="' +data.image + '" ></div>';
     this.appendCon(con);
 };
 // 发送消息
