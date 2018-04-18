@@ -332,7 +332,7 @@ class SwooleHelper extends BaseObject
      * @param $fd
      * @param $data
      */
-    private function onMessageConnect()
+    private function onMessageConnect($fd = null, $data = null)
     {
         $data = [
             'type' => 'Connect',
@@ -340,7 +340,7 @@ class SwooleHelper extends BaseObject
                 'num' => count($this->socket->connections)
             ]
         ];
-        $this->push($data);
+        $this->push($data, $fd);
     }
 
     /**
