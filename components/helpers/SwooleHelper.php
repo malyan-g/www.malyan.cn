@@ -46,7 +46,7 @@ class SwooleHelper extends BaseObject
         'worker_num' => 4, // 进程数
         'daemonize' => true, // 进程是否后台运行
         'backlog' => 128, // 队列长度
-        'logFile' => '/Users/M/logs/swoole-websocket-9801.log' //日志文件路径
+        'logFile' => '/data/logs/swoole-websocket-9801.log' //日志文件路径
     ];
 
     public function init()
