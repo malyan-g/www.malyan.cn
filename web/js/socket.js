@@ -52,11 +52,12 @@ var socket = {
     },
     // webSocket初始化
     initEventHandle: function () {
+        var self = this;
         // 连接建立时触发
         this.ws.onopen = this.open();
         // 客户端接收服务端数据时触发
         this.ws.onmessage = function(event){
-            this.message(event);
+            self.message(event);
         };
         // 通信发生错误时触发
         this.ws.onerror = this.error();
