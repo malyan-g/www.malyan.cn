@@ -3,49 +3,44 @@ var webSocket = {
     ws: null,
     // ws连接地址
     url: 'ws:service.malyan.cn',
-    // 重连时间
-    reconnectTime: 2000,
-    // 心跳检测
-    heartCheck: {
-        // webSocket对象
-        webSocketSelf: this,
-        // 心跳频率
-        timeout: 540000,
-        // 心跳对象
-        timeoutObj: null,
-        // webScoket服务对象
-        serverTimeoutObj: null,
-        // 心跳重置
-        reset: function(){
-            clearTimeout(this.timeoutObj);
-            clearTimeout(this.serverTimeoutObj);
-            return this;
-        },
-        // 心跳开始
-        start: function(){
-            var heartSelf = this;
-            //这里发送一个心跳，后端收到后，返回一个心跳消息，
-            this.timeoutObj = setTimeout(function(){
-                // 发送心跳消息
-                var data = {
-                    type: 'Ping'
-                };
-                heartSelf.webSocketSelf.sendMessage(data);
-                heartSelf.webSocketSelf.log('Ping');
-                //如果超过一定时间还没重置，说明后端主动断开了
-                heartSelf.serverTimeoutObj = setTimeout(function(){
-                    // 如果onclose会执行reconnect，我们执行ws.close()就行了
-                    // 如果直接执行reconnect 会触发onclose导致重连两次
-                    heartSelf.webSocketSelf.ws.close();
-                }, heartSelf.timeout);
-            }, this.timeout);
-        }
-    },
     // 避免ws重复连接
     lockReconnect: false,
+    // 重连时间
+    reconnectTime: 2000,
+    // 心跳频率
+    heartTimeout: 540000,
+    // 心跳对象
+    heartTimeoutObj: null,
+    // webScoket服务对象
+    heartServerTimeoutObj: null,
     // 初始化化
     init: function () {
         this.createWebSocket();
+    },
+    // 心跳重置
+    heartReset: function(){
+        clearTimeout(this.heartTimeoutObj);
+        clearTimeout(this.heartServerTimeoutObj);
+        return this;
+    },
+    // 心跳开始
+    heartStart: function(){
+        var self = this;
+        //这里发送一个心跳，后端收到后，返回一个心跳消息，
+        this.heartTimeoutObj = setTimeout(function(){
+            // 发送心跳消息
+            var data = {
+                type: 'Ping'
+            };
+            self.sendMessage(data);
+            self.log('Ping');
+            //如果超过一定时间还没重置，说明后端主动断开了
+            self.heartServerTimeoutObj = setTimeout(function(){
+                // 如果onclose会执行reconnect，我们执行ws.close()就行了
+                // 如果直接执行reconnect 会触发onclose导致重连两次
+                self.ws.close();
+            }, self.heartTimeout);
+        }, this.heartTimeout);
     },
     // 创建WebSocket对象
     createWebSocket: function () {
@@ -67,13 +62,13 @@ var webSocket = {
         // 连接回调
         this.ws.onopen = function () {
             //心跳检测重置
-            self.heartCheck.reset().start();
+            self.heartReset().heartStart();
             self.log("ws连接成功!"+new Date().toUTCString());
         };
         // 收到消息回调
         this.ws.onmessage = function (e) {
             //如果获取到消息，心跳检测重置
-            self.heartCheck.reset().start();
+            self.heartReset().heartStart();
             //拿到任何消息都说明当前连接是正常的
             try{
                 var data = JSON.parse(e.data)
