@@ -33,6 +33,10 @@ $('.h-doc-chat .file').on('change', function(){
     var input = this.files[0];
     var reader = new FileReader();
     try{
+        if(input.size > 1024*1024){
+            alert('文件大小不能超过1M');
+            return;
+        }
         reader.onload = function(e) {
             this.value = '';
             var image = e.target.result;
