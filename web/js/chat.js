@@ -13,7 +13,7 @@ socket.onMessageText = function (data) {
     this.appendCon(con);
 };
 socket.onMessageImage = function (data) {
-    var con ='<div><a href="#">' + data.nickname + '</a>：<img src="' +data.image + '" ></div>';
+    var con ='<div><a href="#">' + data.nickname + '</a>：<img src="' +data.image + '" width="100%"></div>';
     this.appendCon(con);
 };
 socket.onMessageConnect = function (data) {
