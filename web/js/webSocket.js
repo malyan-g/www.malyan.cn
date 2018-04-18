@@ -28,7 +28,7 @@ var webSocket = {
             var data = {
                 type: 'Ping'
             };
-            self.sendMessage(data);
+            self.ws.send(JSON.stringify(data));
             self.log('Ping');
             //如果超过一定时间还没重置，说明后端主动断开了
             self.heartServerTimeoutObj = setTimeout(function(){
