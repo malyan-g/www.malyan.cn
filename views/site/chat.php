@@ -27,7 +27,6 @@ AppAsset::register($this);
 </head>
 <body class="grayL">
 <?php $this->beginBody() ?>
-
 <div class="wrap">
     <div class="h-doc-im" id="h-doc-im">
         <div class="con"></div>
@@ -48,7 +47,6 @@ $js = <<<JS
 JS;
 $this->registerJs($js, \yii\web\View::POS_HEAD);
 ?>
-
 <?php $this->endBody() ?>
 </body>
 </html>

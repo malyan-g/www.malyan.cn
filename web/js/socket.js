@@ -17,7 +17,7 @@ var socket = {
     // webScoket服务对象
     heartServerTimeoutObj: null,
     // 构造方法
-    run: function () {
+    init: function () {
         this.createWebSocket();
         $('.h-doc-im').css('height',$(window).height() - $('.h-doc-chat').outerHeight());
         this.imScroll = new IScroll('#h-doc-im', {click: true});
