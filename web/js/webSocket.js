@@ -30,8 +30,8 @@ var webSocket = {
                 var data = {
                     type: 'Ping'
                 };
-                this.webSocketSelf.sendMessage(data);
-                this.webSocketSelf.log('Ping');
+                heartSelf.webSocketSelf.sendMessage(data);
+                heartSelf.webSocketSelf.log('Ping');
                 //如果超过一定时间还没重置，说明后端主动断开了
                 heartSelf.serverTimeoutObj = setTimeout(function(){
                     // 如果onclose会执行reconnect，我们执行ws.close()就行了
