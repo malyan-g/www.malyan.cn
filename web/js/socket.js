@@ -54,50 +54,43 @@ var socket = {
     initEventHandle: function () {
         var self = this;
         // 连接建立时触发
-        this.ws.onopen = this.open();
+        this.ws.onopen = function (event) {
+            this.log("ws open!");
+            this.log(event);
+            //心跳检测重置
+            this.heartReset().heartStart();
+        };
         // 客户端接收服务端数据时触发
         this.ws.onmessage = function(event){
-            self.message(event);
+            this.log("ws message!");
+            //如果获取到消息，心跳检测重置
+            this.heartReset().heartStart();
+            //拿到任何消息都说明当前连接是正常的
+            try{
+                this.log(event.data);
+                var data = JSON.parse(event.data);
+                if(data.type === 'Text'){
+                    this.onMessageText(data.data);
+                }else if(data.type === 'Image'){
+                    this.onMessageImage(data.data);
+                }
+            }catch (e){
+                this.log(e);
+                this.log(event);
+            }
         };
         // 通信发生错误时触发
-        this.ws.onerror = this.error();
-        // 连接关闭时触发
-        this.ws.onclose = this.close();
-    },
-    // webSocket连接建立时回调
-    open: function () {
-        this.log("ws open!");
-        //心跳检测重置
-        this.heartReset().heartStart();
-    },
-    // webSocket客户端接收服务端数据时回调
-    message: function (event) {
-        this.log("ws message!");
-        //如果获取到消息，心跳检测重置
-        this.heartReset().heartStart();
-        //拿到任何消息都说明当前连接是正常的
-        try{
-            this.log(event.data);
-            var data = JSON.parse(event.data);
-            if(data.type === 'Text'){
-                this.onMessageText(data.data);
-            }else if(data.type === 'Image'){
-                this.onMessageImage(data.data);
-            }
-        }catch (e){
-            this.log(e);
+        this.ws.onerror = function (event) {
+            this.log("ws error!");
             this.log(event);
-        }
-    },
-    // webSocket通信发生错误时回调
-    error: function () {
-        this.log("ws error!");
-        this.reconnect();
-    },
-    // webSocket连接关闭时回调
-    close: function () {
-        this.log("ws close!");
-        this.reconnect();
+            this.reconnect();
+        };
+        // 连接关闭时触发
+        this.ws.onclose = function (event) {
+            this.log("ws close!");
+            this.log(event);
+            this.reconnect();
+        };
     },
     // webSocket客户端发送数据到服务器
     send: function (data) {
