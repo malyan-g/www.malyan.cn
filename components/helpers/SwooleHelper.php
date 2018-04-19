@@ -272,7 +272,7 @@ class SwooleHelper extends BaseObject
     private function open()
     {
         $this->socket->on('open', function (\swoole_websocket_server $server, \swoole_http_request $request) {
-            $this->onMessageConnect(count($this->socket->connections));
+            $this->onMessageConnect();
         });
     }
 
@@ -302,7 +302,7 @@ class SwooleHelper extends BaseObject
     private function close()
     {
         $this->socket->on('close', function (\swoole_websocket_server $server, $fd) {
-            $this->onMessageConnect(count($this->socket->connections) - 1);
+            $this->onMessageConnect();
         });
     }
 
@@ -332,12 +332,12 @@ class SwooleHelper extends BaseObject
      * @param $fd
      * @param $data
      */
-    private function onMessageConnect($num)
+    private function onMessageConnect()
     {
         $data = [
             'type' => 'Connect',
             'data' => [
-                'num' => $num
+                'num' => count($this->socket->connections)
             ]
         ];
         $this->push($data, $fd);
