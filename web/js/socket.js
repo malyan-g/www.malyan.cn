@@ -57,7 +57,7 @@ var socket = {
         this.ws.onopen = function (event) {
             self.log("ws open!");
             self.log(event);
-            self.send({type: 'Connect'});
+            //self.send({type: 'Connect'});
             //心跳检测重置
             self.heartReset().heartStart();
         };
