@@ -407,7 +407,10 @@ class SwooleHelper extends BaseObject
 
                     $data = [
                         'type' => 'Text',
-                        'msg' => htmlspecialchars($request->post['content'])
+                        'data' => [
+                            'nickname' => '系统',
+                            'text' => htmlspecialchars($request->post['content'])
+                        ]
                     ];
                     $this->push($data);
 
