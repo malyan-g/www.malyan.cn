@@ -136,7 +136,7 @@ var socket = {
         if (isiOS) {
             $('.h-doc-chat .input').focus(function () {
                 setTimeout(function(){
-                    window.scrollTo(0, $(document).height());
+                    window.scrollTo(0, $('body').height());
                 }, 500);
             });
         }
