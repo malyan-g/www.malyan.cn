@@ -1,6 +1,8 @@
 socket.init();
-socket.appendCon = function (con) {
+socket.onMessageText = function (data) {
+    var con = '<div class="act-pat clearfix"><a href="#" ' + (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：' + data.text + '</a></div>';
     $('.h-doc-im .con').append(con);
+
     var dis = $('.h-doc-im .con').height() - $('.h-doc-im').height();
     this.imScroll.refresh();
     if(dis > 0) {
@@ -8,13 +10,21 @@ socket.appendCon = function (con) {
         this.imScroll.scrollTo(0, -dis);
     }
 };
-socket.onMessageText = function (data) {
-    var con = '<div class="act-pat clearfix"><a href="#" ' + (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：' + data.text + '</a></div>';
-    this.appendCon(con);
-};
 socket.onMessageImage = function (data) {
+    var self = this;
     var con ='<div  class="act-pat clearfix"><a href="#" ' +  (data.nickname === nickname ? 'style="color:red"' : '') + '>' + data.nickname + '</a>：<div class="about"><span class="arrow"></span><img src="' +data.image + '" class="pic"></div></div>';
-    this.appendCon(con);
+    $('.h-doc-im .con').append(con);
+
+    var img = new Image();
+    img.src = data.image;
+    img.onload = function(){
+        var dis = $('.h-doc-im .con').height() - $('.h-doc-im').height();
+        self.imScroll.refresh();
+        if(dis > 0) {
+            dis += 30;
+            self.imScroll.scrollTo(0, -dis);
+        }
+    }
 };
 socket.onMessageConnect = function (data) {
     $('.num').html(data.num);
