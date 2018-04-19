@@ -166,7 +166,7 @@ class SwooleHelper extends BaseObject
 
         $this->set();
 
-        $this->handshake();
+        //$this->handshake();
 
         $this->open();
 
