@@ -135,8 +135,10 @@ var socket = {
 
         if (isiOS) {
             $('.h-doc-chat .input').focus(function () {
+                var self = thisl
                 setTimeout(function(){
                     window.scrollTo(0, $('body').height());
+                    self.scrollIntoView(true);
                 }, 500);
             });
         }
