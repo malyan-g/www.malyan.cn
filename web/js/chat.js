@@ -6,7 +6,7 @@ socket.onMessageText = function (data) {
     var dis = $('.h-doc-im .con').height() - $('.h-doc-im').height();
     this.imScroll.refresh();
     if(dis > 0) {
-        dis += 30;
+        dis += 10;
         this.imScroll.scrollTo(0, -dis);
     }
 };
@@ -21,7 +21,7 @@ socket.onMessageImage = function (data) {
         var dis = $('.h-doc-im .con').height() - $('.h-doc-im').height();
         self.imScroll.refresh();
         if(dis > 0) {
-            dis += 30;
+            dis += 10;
             self.imScroll.scrollTo(0, -dis);
         }
     }
