@@ -28,7 +28,10 @@ AppAsset::register($this);
 <body class="grayL">
 <?php $this->beginBody() ?>
 <div class="wrap">
-    <div class="header-num" style="background: #00b3ee;text-align: center"><a href="#"><?= $nickname ?></a> (当前共<span class="num">1</span>人)</div>
+    <div class="header-num" style="background: #00b3ee;text-align: center">
+        <a href="#"><?= $nickname ?></a> (当前共<span class="num">1</span>人)
+        <a href="http://passport.malyan.cn/logout.html" style="float: right;margin-right: 10px;">退出</a>
+    </div>
     <div class="h-doc-im" id="h-doc-im">
         <div class="con"></div>
     </div>

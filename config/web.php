@@ -12,14 +12,19 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'G_H5R8dBIr5_PTuHPpMhlYq-T_37_3-5',
+            'cookieValidationKey' => '2lp18Q7XzHsSkbOrNfE4jLzYXPUmypMg',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityCookie' => ['domain' => '.malyan.cn', 'name' => '_identity-passport', 'httpOnly' => true],
+            'enableAutoLogin' => true
+        ],
+        'session' => [
+            'cookieParams' => ['domain' => '.malyan.cn', 'lifetime' => 0],
+            'timeout' => 3600,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
