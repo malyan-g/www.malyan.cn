@@ -1,5 +1,5 @@
 <?php
-echo 1;die;
+
 // comment out the following two lines when deployed to production
 $SYSTEM_CONFIG = parse_ini_file(__DIR__.'/../../systems/SYSTEM_CONFIG') ;
 if(isset($SYSTEM_CONFIG['YII_DEBUG']) &&  $SYSTEM_CONFIG['YII_DEBUG']){
