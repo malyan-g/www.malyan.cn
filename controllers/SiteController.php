@@ -14,19 +14,10 @@ class SiteController extends Controller
      * 聊天
      * @return string
      */
-    public function actionChat()
+    public function actionIndex()
     {
-        if(Yii::$app->user->isGuest){
-            return $this->redirect('http://passport.malyan.cn');
-        }
-        /*$token = md5(time());
-        $redisHelper = RedisHelper::getInstance();
-        $redisHelper->set($token, 1);
-        $redisHelper->expire($token, 60);*/
-        $nickname = !Yii::$app->user->isGuest ? Yii::$app->user->identity->nickname  : '游客' . uniqid();
-        return $this->render('chat', [
-            'nickname' => $nickname
-        ]);
+
+        return $this->render('index');
     }
 
     public function actionPush()
