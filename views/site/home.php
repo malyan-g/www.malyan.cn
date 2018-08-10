@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<video src="movie.ogg" controls="controls" autoplay="autoplay" loop="loop" src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" width="100%">
+<video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" controls="controls" autoplay="autoplay" loop="loop" width="100%">
     您的浏览器不支持 video 标签。
 </video>
 </body>
