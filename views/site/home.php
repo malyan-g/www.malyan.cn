@@ -14,7 +14,7 @@
 <div align="center" style="margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;">
-    <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" autoplay="autoplay" loop="loop" height="480">
+    <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" controls="controls" autoplay="autoplay" loop="loop" height="480">
         您的浏览器不支持 video 标签。
     </video>
 </div>
