@@ -8,8 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-<video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" controls="controls" autoplay="autoplay" loop="loop" width="100%">
-    您的浏览器不支持 video 标签。
-</video>
+<div align="center">
+    <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" controls="controls" autoplay="autoplay" loop="loop" height="480">
+        您的浏览器不支持 video 标签。
+    </video>
+</div>
 </body>
 </html>
