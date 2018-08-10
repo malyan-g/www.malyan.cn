@@ -20,6 +20,16 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    /**
+     * 聊天
+     * @return string
+     */
+    public function actionHome()
+    {
+
+        return $this->render('home');
+    }
+
     public function actionPush()
     {
         $content = Yii::$app->request->get('c','哈哈');
