@@ -11,8 +11,10 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;">
-<div align="center">
-    <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" muted autoplay="autoplay" loop="loop" height="80%" style="vertical-align: middle;">
+<div align="center" style="margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;">
+    <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" autoplay="autoplay" loop="loop" height="480">
         您的浏览器不支持 video 标签。
     </video>
 </div>
