@@ -7,7 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body style="background: url(http://img.malyan.cn/preview_nytilt.jpg) 100% no-repeat">
+<body style="background: url(http://img.malyan.cn/preview_nytilt.jpg)  no-repeat center center fixed; -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;">
 <div align="center" style="margin-top: 60px">
     <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" controls="controls" autoplay="autoplay" loop="loop" height="480">
         您的浏览器不支持 video 标签。
