@@ -12,7 +12,7 @@
     -o-background-size: cover;
     background-size: cover;">
 <div align="center" style="margin-top: 60px">
-    <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" controls="controls" autoplay="autoplay" loop="loop" height="480">
+    <video src="http://img.malyan.cn/AgyF3kih_1677643147_hd.mp4" autoplay="autoplay" loop="loop" height="480">
         您的浏览器不支持 video 标签。
     </video>
 </div>
